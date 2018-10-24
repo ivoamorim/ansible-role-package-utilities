@@ -1,0 +1,21 @@
+---
+base_repofile_path: /etc/yum.repos.d/CentOS-Base.repo
+baserepo_priority: 1
+baserepo_section:
+  - base
+  - updates
+  - extras
+  - centosplus
+
+epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+epel_priority: 2
+epel_section:
+  - epel
+  - epel-debuginfo
+  - epel-source
+
+yum_plugins:
+  - 'yum-plugin-changelog'
+  - 'yum-plugin-priorities'
+  - 'yum-plugin-verify'
+  - 'yum-plugin-versionlock'

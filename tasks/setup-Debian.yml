@@ -1,0 +1,6 @@
+---
+- name: Install Apt Utils
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ apt_utils }}"

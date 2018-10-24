@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  role_name: package-utilities
+  author: Ivo Amorim
+  description: Enable EPEL repository if target OS is RedHat family
+  license: "BSD"
+  min_ansible_version: 1.0
+  platforms:
+    - name: centos
+      versions:
+        - 7
+    - name: debian
+      versions:
+        - 9
+  galaxy_tags:
+    - package
+    - yum
+    - apt
+dependencies: []

@@ -1,0 +1,48 @@
+---
+- name: Install YUM Utils
+  package:
+    name: "yum-utils"
+    state: present
+
+- name: Install YUM Plugins
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ yum_plugins }}"
+
+- name: Add priorities on default repositories
+  ini_file:
+    create: no
+    path: "{{ base_repofile_path }}"
+    section: "{{ item }}"
+    option: priority
+    value: "{{ baserepo_priority }}"
+    no_extra_spaces: yes
+  with_items: "{{ baserepo_section }}"
+
+- name: Install EPEL repo.
+  package:
+    name: "epel-release"
+    state: present
+  when: epel_enabled
+
+- name: Add priorities on EPELrepo file
+  ini_file:
+    create: no
+    path: "{{ epel_repofile_path }}"
+    section: "{{ item }}"
+    option: priority
+    value: "{{ epel_priority }}"
+    no_extra_spaces: yes
+  with_items: "{{ epel_section }}"
+  when: epel_enabled
+
+- name: Enable EPEL repo.
+  ini_file:
+    create: no
+    path: "{{ epel_repofile_path }}"
+    section: epel
+    option: enabled
+    value: 1
+    no_extra_spaces: yes
+  when: epel_enabled
