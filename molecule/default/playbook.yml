@@ -1,0 +1,14 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    epel_enabled: true
+
+  pre_tasks:
+    - name: Install Dependencies.
+      yum: name=libselinux-python
+      when: ansible_os_family == 'RedHat'
+      changed_when: false
+
+  roles:
+    - role: ansible-role-package-utilities
