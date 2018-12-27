@@ -6,14 +6,20 @@ galaxy_info:
   license: "BSD"
   min_ansible_version: 1.0
   platforms:
-    - name: centos
+    - name: Debian
+      versions:
+        - stretch
+    - name: EL
       versions:
         - 7
-    - name: debian
+    - name: Ubuntu
       versions:
-        - 9
+        - bionic
   galaxy_tags:
+    - system
     - package
+    - repository
     - yum
     - apt
+    - epel
 dependencies: []
