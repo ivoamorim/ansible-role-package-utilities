@@ -1,4 +1,6 @@
 ---
 apt_utils:
   - apt-rdepends
+  - apt-transport-https
   - apt-utils
+  - software-properties-common

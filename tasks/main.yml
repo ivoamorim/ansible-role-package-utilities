@@ -2,4 +2,9 @@
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
+- name: Update CA Certificates
+  package:
+    name: "ca-certificates"
+    state: latest
+
 - include_tasks: "setup-{{ ansible_os_family }}.yml"
